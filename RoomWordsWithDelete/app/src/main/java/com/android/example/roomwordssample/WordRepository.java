@@ -17,12 +17,8 @@
 package com.android.example.roomwordssample;
 
 import android.app.Application;
-import android.arch.lifecycle.LiveData;
+import androidx.lifecycle.LiveData;
 import android.os.AsyncTask;
-
-import com.android.example.roomwordssample.Word;
-import com.android.example.roomwordssample.WordDao;
-import com.android.example.roomwordssample.WordRoomDatabase;
 
 import java.util.List;
 

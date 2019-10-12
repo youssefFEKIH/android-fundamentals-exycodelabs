@@ -17,11 +17,8 @@
 package com.android.example.roomwordssample;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LiveData;
-
-import com.android.example.roomwordssample.Word;
-import com.android.example.roomwordssample.WordRepository;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
 import java.util.List;
 

@@ -24,7 +24,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 import android.widget.ToggleButton;
