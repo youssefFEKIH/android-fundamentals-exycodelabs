@@ -17,6 +17,7 @@ package com.example.android.roomwordssample;
  */
 
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Get a new or existing ViewModel from the ViewModelProvider.
-        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
+        mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
 
         // Add an observer on the LiveData returned by getAlphabetizedWords.
         // The onChanged() method fires when the observed data changes and the activity is

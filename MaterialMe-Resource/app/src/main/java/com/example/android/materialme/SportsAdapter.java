@@ -18,6 +18,8 @@ package com.example.android.materialme;
 
 import android.content.Context;
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,8 +37,8 @@ import java.util.ArrayList;
 class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder>  {
 
     // Member variables.
-    private ArrayList<Sport> mSportsData;
-    private Context mContext;
+    private final ArrayList<Sport> mSportsData;
+    private final Context mContext;
 
     /**
      * Constructor that passes in the sports data and the context.
@@ -58,9 +60,10 @@ class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder>  {
      * @param viewType The view type of the new View.
      * @return The newly created ViewHolder.
      */
+    @NonNull
     @Override
     public SportsAdapter.ViewHolder onCreateViewHolder(
-            ViewGroup parent, int viewType) {
+            @NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(mContext)
                 .inflate(R.layout.list_item, parent, false));
     }
@@ -100,9 +103,9 @@ class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder>  {
             implements View.OnClickListener{
 
         // Member Variables for the TextViews
-        private TextView mTitleText;
-        private TextView mInfoText;
-        private ImageView mSportsImage;
+        private final TextView mTitleText;
+        private final TextView mInfoText;
+        private final ImageView mSportsImage;
 
         /**
          * Constructor for the ViewHolder, used in onCreateViewHolder().
@@ -139,7 +142,7 @@ class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder>  {
          */
         @Override
         public void onClick(View view) {
-            Sport currentSport = mSportsData.get(getAdapterPosition());
+            Sport currentSport = mSportsData.get(getBindingAdapterPosition());
             Intent detailIntent = new Intent(mContext, DetailActivity.class);
             detailIntent.putExtra("title", currentSport.getTitle());
             detailIntent.putExtra("image_resource",

@@ -15,6 +15,7 @@
  */
 package com.example.android.simpleasynctask;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
      *                 it is spontaneously destroyed.
      */
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         // Save the state of the TextView
         outState.putString(TEXT_STATE, mTextView.getText().toString());

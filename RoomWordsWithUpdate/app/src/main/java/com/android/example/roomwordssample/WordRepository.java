@@ -37,8 +37,8 @@ import java.util.List;
 
 public class WordRepository {
 
-    private WordDao mWordDao;
-    private LiveData<List<Word>> mAllWords;
+    private final WordDao mWordDao;
+    private final LiveData<List<Word>> mAllWords;
 
     WordRepository(Application application) {
         WordRoomDatabase db = WordRoomDatabase.getDatabase(application);
@@ -74,7 +74,7 @@ public class WordRepository {
      */
     private static class insertAsyncTask extends AsyncTask<Word, Void, Void> {
 
-        private WordDao mAsyncTaskDao;
+        private final WordDao mAsyncTaskDao;
 
         insertAsyncTask(WordDao dao) {
             mAsyncTaskDao = dao;
@@ -91,7 +91,7 @@ public class WordRepository {
      * Deletes all words from the database (does not delete the table).
      */
     private static class deleteAllWordsAsyncTask extends AsyncTask<Void, Void, Void> {
-        private WordDao mAsyncTaskDao;
+        private final WordDao mAsyncTaskDao;
 
         deleteAllWordsAsyncTask(WordDao dao) {
             mAsyncTaskDao = dao;
@@ -108,7 +108,7 @@ public class WordRepository {
      *  Deletes a single word from the database.
      */
     private static class deleteWordAsyncTask extends AsyncTask<Word, Void, Void> {
-        private WordDao mAsyncTaskDao;
+        private final WordDao mAsyncTaskDao;
 
         deleteWordAsyncTask(WordDao dao) {
             mAsyncTaskDao = dao;
@@ -125,7 +125,7 @@ public class WordRepository {
      *  Updates a word in the database.
      */
     private static class updateWordAsyncTask extends AsyncTask<Word, Void, Void> {
-        private WordDao mAsyncTaskDao;
+        private final WordDao mAsyncTaskDao;
 
         updateWordAsyncTask(WordDao dao) {
             mAsyncTaskDao = dao;

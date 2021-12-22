@@ -59,7 +59,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
     // This callback is called when the database has opened.
     // In this case, use PopulateDbAsync to populate the database
     // with the initial data set if the database has no entries.
-    private static RoomDatabase.Callback sRoomDatabaseCallback =
+    private static final RoomDatabase.Callback sRoomDatabaseCallback =
             new RoomDatabase.Callback(){
 
                 @Override

@@ -22,8 +22,8 @@ package com.example.android.materialme;
 class Sport {
 
     // Member variables representing the title and information about the sport.
-    private String title;
-    private String info;
+    private final String title;
+    private final String info;
     private final int imageResource;
 
     /**

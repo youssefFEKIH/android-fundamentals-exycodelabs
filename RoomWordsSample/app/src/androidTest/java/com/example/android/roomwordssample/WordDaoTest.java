@@ -21,8 +21,10 @@ import static junit.framework.Assert.assertTrue;
 
 import androidx.room.Room;
 import android.content.Context;
-import androidx.test.platform.app.InstrumentationRegistry;
+
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+
 
 import org.junit.After;
 import org.junit.Before;
@@ -51,7 +53,7 @@ public class WordDaoTest {
 
     @Before
     public void createDb() {
-        Context context = InstrumentationRegistry.getTargetContext();
+        Context context = InstrumentationRegistry.getInstrumentation().getTargetContext();
         // Using an in-memory database because the information stored here disappears when the
         // process is killed.
         mDb = Room.inMemoryDatabaseBuilder(context, WordRoomDatabase.class)

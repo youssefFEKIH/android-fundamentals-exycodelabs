@@ -16,7 +16,9 @@
 
 package com.android.example.roomwordssample;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Set up the WordViewModel.
-        mWordViewModel = ViewModelProviders.of(this).get(WordViewModel.class);
+        mWordViewModel = new ViewModelProvider(this).get(WordViewModel.class);
         // Get all the words from the database
         // and associate them to the adapter.
         mWordViewModel.getAllWords().observe(this, new Observer<List<Word>>() {
@@ -97,16 +99,16 @@ public class MainActivity extends AppCompatActivity {
                         ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
                     @Override
                     // We are not implementing onMove() in this app.
-                    public boolean onMove(RecyclerView recyclerView,
-                                          RecyclerView.ViewHolder viewHolder,
-                                          RecyclerView.ViewHolder target) {
+                    public boolean onMove(@NonNull RecyclerView recyclerView,
+                                          @NonNull RecyclerView.ViewHolder viewHolder,
+                                          @NonNull RecyclerView.ViewHolder target) {
                         return false;
                     }
 
                     @Override
                     // When the use swipes a word,
                     // delete that word from the database.
-                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                         int position = viewHolder.getAdapterPosition();
                         Word myWord = adapter.getWordAtPosition(position);
                         Toast.makeText(MainActivity.this,

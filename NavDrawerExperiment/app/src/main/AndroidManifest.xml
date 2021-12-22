@@ -25,7 +25,8 @@ limitations under the License. -->
         <activity
             android:name="com.example.android.navdrawerexperiment.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -112,9 +112,8 @@ public class MainActivity extends AppCompatActivity {
     public void shareText(View view) {
         String txt = mShareTextEditText.getText().toString();
         String mimeType = "text/plain";
-        ShareCompat.IntentBuilder
-                .from(this)
-                .setType(mimeType)
+        ShareCompat.IntentBuilder shareIntent = new ShareCompat.IntentBuilder(this);
+        shareIntent.setType(mimeType)
                 .setChooserTitle(R.string.share_text_with)
                 .setText(txt)
                 .startChooser();

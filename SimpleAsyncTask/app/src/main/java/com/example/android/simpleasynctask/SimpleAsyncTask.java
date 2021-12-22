@@ -29,7 +29,7 @@ import java.util.Random;
 public class SimpleAsyncTask extends AsyncTask<Void,Void, String> {
 
     // The TextView where we will show results
-    private WeakReference<TextView> mTextView;
+    private final WeakReference<TextView> mTextView;
 
     // Constructor that provides a reference to the TextView from the MainActivity
     SimpleAsyncTask(TextView tv) {

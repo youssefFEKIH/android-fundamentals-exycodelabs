@@ -29,9 +29,9 @@ import java.util.List;
 
 public class WordViewModel extends AndroidViewModel {
 
-    private WordRepository mRepository;
+    private final WordRepository mRepository;
 
-    private LiveData<List<Word>> mAllWords;
+    private final LiveData<List<Word>> mAllWords;
 
     public WordViewModel(Application application) {
         super(application);

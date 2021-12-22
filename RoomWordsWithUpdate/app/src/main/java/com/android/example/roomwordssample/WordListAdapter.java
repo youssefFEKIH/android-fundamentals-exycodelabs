@@ -17,6 +17,8 @@
 package com.android.example.roomwordssample;
 
 import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,14 +41,15 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         mInflater = LayoutInflater.from(context);
     }
 
+    @NonNull
     @Override
-    public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public WordViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.recyclerview_item, parent, false);
         return new WordViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(WordViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull WordViewHolder holder, int position) {
         if (mWords != null) {
             Word current = mWords.get(position);
             holder.wordItemView.setText(current.getWord());
@@ -87,7 +90,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         return mWords.get(position);
     }
 
-    class WordViewHolder extends RecyclerView.ViewHolder {
+    static class WordViewHolder extends RecyclerView.ViewHolder {
         private final TextView wordItemView;
 
         private WordViewHolder(View itemView) {
